@@ -10,6 +10,14 @@ Archive Finder is not a swipe app and not a raw scraping dashboard. It is a work
 - custom brand tracking
 - desktop workflow first
 
+## Screens
+
+![Live Feed](docs/screenshots/live-feed.png)
+
+![Sources](docs/screenshots/sources.png)
+
+![Settings](docs/screenshots/settings.png)
+
 ## Why this exists
 
 Most resale crawlers collect too much stale junk and make operators manually sift through it.
@@ -209,6 +217,10 @@ cat data/release-smoke.txt
 Questions about setup or operation:
 
 - Telegram: [@aloegarten00](https://t.me/aloegarten00)
+
+## Design note
+
+The current visual direction was explored with AI assistance, but the product logic, runtime architecture, parsers, scoring, and desktop packaging are implemented in this repository.
 
 ## License
 

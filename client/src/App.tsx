@@ -566,7 +566,7 @@ function UsageGuidePanel(props: {
       <div className="usage-guide__lead">
         <div>
           <span className="hero-eyebrow">How to use Archive Finder</span>
-          <h2>Run it like a resale desk, not like a random scraper.</h2>
+          <h2>Run it like an operator desk, not a noisy crawler.</h2>
           <p>
             Keep the setup simple: connect protected sources only where needed, keep cookie packs fresh, load your own
             brands, then reset live state before a clean manual test. The engine is already tuned to keep only fresh items.
@@ -1564,8 +1564,8 @@ export function App() {
           <section className="page">
             <section className="hero-panel hero-panel--feed">
               <div className="hero-copy">
-                <span className="hero-eyebrow">Realtime designer resale engine</span>
-                <h1>Fresh-only resale signal, styled like a product not a script.</h1>
+                <span className="hero-eyebrow">Desktop resale monitor</span>
+                <h1>Fresh-only designer listings, filtered before they hit the feed.</h1>
                 <p>
                   Every source is filtered to the live resale window, scored, and pushed into the feed only when it is genuinely fresh.
                   Public sources stay fast, protected sources stay controlled, and the operator always sees why a marketplace is healthy or blocked.
