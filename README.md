@@ -211,6 +211,7 @@ cat data/release-smoke.txt
 
 - [Operator Handbook](/Users/mac/Documents/New%20project/docs/OPERATOR_HANDBOOK.md)
 - [mac Release Test](/Users/mac/Documents/New%20project/docs/mac-release-test.md)
+- [Launch Post](/Users/mac/Documents/New%20project/docs/LAUNCH_POST.md)
 
 ## Contact
 

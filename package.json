@@ -1,7 +1,7 @@
 {
   "name": "avito-clothing-monitor",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Realtime designer resale crawler focused on fresh listings, recommendations, and operator-friendly source control.",
   "author": "Archive Finder Contributors",
   "main": "desktop/main.mjs",
