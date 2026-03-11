@@ -1,0 +1,44 @@
+services:
+  server:
+    image: node:20-bookworm
+    working_dir: /app
+    command: sh -c "npm install && npm run migrate && npm run dev:server"
+    ports:
+      - "4000:4000"
+    environment:
+      PORT: 4000
+      CLIENT_ORIGIN: http://localhost:5173
+      DB_PATH: ../data/avito-monitor.sqlite
+      POLLER_TICK_MS: 5000
+      GLOBAL_FETCH_CONCURRENCY: 3
+      REQUEST_TIMEOUT_MS: 12000
+      MAX_LISTINGS_PER_FEED: 60
+    volumes:
+      - .:/app
+      - root_node_modules:/app/node_modules
+      - server_node_modules:/app/server/node_modules
+      - shared_node_modules:/app/shared/node_modules
+      - data_volume:/app/data
+
+  client:
+    image: node:20-bookworm
+    working_dir: /app
+    command: sh -c "npm install && npm run dev:client -- --host 0.0.0.0"
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_BASE_URL: http://localhost:4000
+    depends_on:
+      - server
+    volumes:
+      - .:/app
+      - root_node_modules:/app/node_modules
+      - client_node_modules:/app/client/node_modules
+      - shared_node_modules:/app/shared/node_modules
+
+volumes:
+  root_node_modules:
+  server_node_modules:
+  client_node_modules:
+  shared_node_modules:
+  data_volume:

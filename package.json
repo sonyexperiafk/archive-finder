@@ -1,0 +1,68 @@
+{
+  "name": "avito-clothing-monitor",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Realtime designer resale crawler focused on fresh listings, recommendations, and operator-friendly source control.",
+  "author": "Archive Finder Contributors",
+  "main": "desktop/main.mjs",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "workspaces": [
+    "shared",
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "build": "npm run build:shared && npm run build:server && npm run build:client",
+    "build:shared": "npm --workspace shared run build",
+    "build:server": "npm --workspace server run build && npm --workspace server run build:desktop-bundle",
+    "build:client": "npm --workspace client run build",
+    "desktop:build:icon": "sh ./desktop/scripts/build-icons.sh",
+    "dev": "npm run build:shared && concurrently -n server,client -c cyan,magenta \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "sh -c 'npm run build:shared >/dev/null && if lsof -iTCP:4000 -sTCP:LISTEN >/dev/null 2>&1; then echo \"server already running on :4000, reusing existing process\"; else npm --workspace server run dev; fi'",
+    "dev:client": "npm --workspace client run dev",
+    "desktop:dev": "npm run build:shared && concurrently -n server,client,electron -c cyan,magenta,yellow \"npm --workspace server run dev\" \"npm --workspace client run dev\" \"sh -c 'until curl -sf http://127.0.0.1:4000/api/health >/dev/null; do sleep 1; done; until curl -sf http://127.0.0.1:5173 >/dev/null; do sleep 1; done; electron .'\"",
+    "desktop:build:mac": "npm run desktop:build:icon && npm run build && electron-builder --mac dir --publish never",
+    "desktop:dist:mac": "npm run desktop:build:icon && npm run build && electron-builder --mac --publish never",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "npm run build:shared && npm run lint:workspaces",
+    "lint:workspaces": "npm run lint --workspaces --if-present",
+    "migrate": "npm --workspace server run migrate",
+    "seed": "npm --workspace server run seed"
+  },
+  "build": {
+    "appId": "com.archivefinder.desktop",
+    "productName": "Archive Finder",
+    "asar": true,
+    "icon": "desktop/icons/icon.icns",
+    "afterSign": "desktop/scripts/notarize.mjs",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "desktop/**/*",
+      "client/dist/**/*",
+      "server/dist/**/*",
+      "server/migrations/**/*",
+      "shared/dist/**/*",
+      "shared/searchQueries.txt",
+      "package.json"
+    ],
+    "mac": {
+      "icon": "desktop/icons/icon.icns",
+      "category": "public.app-category.productivity",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    }
+  },
+  "devDependencies": {
+    "@electron/notarize": "^3.1.1",
+    "concurrently": "^9.2.1",
+    "electron": "^36.2.1",
+    "electron-builder": "^26.0.12",
+    "typescript": "^5.8.2"
+  }
+}

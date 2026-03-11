@@ -1,0 +1,5 @@
+ALTER TABLE feeds ADD COLUMN source TEXT NOT NULL DEFAULT 'avito';
+ALTER TABLE feeds ADD COLUMN search_mode TEXT NOT NULL DEFAULT 'exact_url';
+ALTER TABLE feeds ADD COLUMN fetch_mode TEXT NOT NULL DEFAULT 'direct';
+ALTER TABLE feeds ADD COLUMN category_key TEXT;
+ALTER TABLE feeds ADD COLUMN custom_query TEXT;

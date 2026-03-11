@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="140" x2="864" y1="84" y2="940" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#11202d"/>
+      <stop offset="0.55" stop-color="#0b1520"/>
+      <stop offset="1" stop-color="#070d13"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="168" x2="840" y1="146" y2="864" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.03"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="332" x2="684" y1="278" y2="750" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffd6a0"/>
+      <stop offset="0.45" stop-color="#f4c37d"/>
+      <stop offset="1" stop-color="#db9d52"/>
+    </linearGradient>
+    <linearGradient id="arc" x1="278" x2="816" y1="640" y2="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#5acb87"/>
+      <stop offset="0.52" stop-color="#62b9f8"/>
+      <stop offset="1" stop-color="#f4c37d"/>
+    </linearGradient>
+    <radialGradient id="flare" cx="0" cy="0" r="1" gradientTransform="translate(802 346) rotate(90) scale(112)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffb07b"/>
+      <stop offset="1" stop-color="#ff7245"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1024" height="1024" rx="248" fill="url(#bg)"/>
+  <rect x="92" y="92" width="840" height="840" rx="208" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.08" stroke-width="8"/>
+  <path d="M226 196C332 116 454 84 590 84h186c91 0 164 73 164 164v116C862 250 668 172 480 196c-104 13-187 48-254 108V248c0-19 0-35 0-52Z" fill="#ffffff" fill-opacity="0.05"/>
+
+  <path d="M338 766 440 274h88L426 766Z" fill="url(#gold)"/>
+  <path d="M494 274h88l104 492h-91Z" fill="url(#gold)"/>
+  <rect x="428" y="476" width="170" height="64" rx="32" fill="url(#gold)"/>
+
+  <path d="M250 642c0-204 145-354 352-354 108 0 191 32 256 92" fill="none" stroke="url(#arc)" stroke-linecap="round" stroke-width="44"/>
+  <path d="M640 684c72-11 128-48 172-108" fill="none" stroke="url(#arc)" stroke-linecap="round" stroke-width="32" stroke-opacity="0.82"/>
+  <circle cx="806" cy="352" r="56" fill="url(#flare)"/>
+  <circle cx="806" cy="352" r="72" fill="#ff8158" fill-opacity="0.12"/>
+</svg>

@@ -1,0 +1,12 @@
+ALTER TABLE feed_runs ADD COLUMN response_status INTEGER;
+ALTER TABLE feed_runs ADD COLUMN content_type TEXT;
+ALTER TABLE feed_runs ADD COLUMN final_url TEXT;
+ALTER TABLE feed_runs ADD COLUMN html_length INTEGER;
+ALTER TABLE feed_runs ADD COLUMN cards_found INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE feed_runs ADD COLUMN items_extracted INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE feed_runs ADD COLUMN sample_titles_json TEXT NOT NULL DEFAULT '[]';
+ALTER TABLE feed_runs ADD COLUMN parse_warnings_json TEXT NOT NULL DEFAULT '[]';
+ALTER TABLE feed_runs ADD COLUMN strategies_used_json TEXT NOT NULL DEFAULT '[]';
+ALTER TABLE feed_runs ADD COLUMN suspected_reason TEXT;
+ALTER TABLE feed_runs ADD COLUMN debug_html_path TEXT;
+ALTER TABLE feed_runs ADD COLUMN debug_report_path TEXT;
